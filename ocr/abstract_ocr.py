@@ -14,3 +14,8 @@ class AbstractOCR(ABC):
     @abstractmethod
     def parse_result(self, result):
         pass
+
+    @staticmethod
+    def get_file_content(file_path: str):
+        with open(file_path, 'rb') as fp:
+            return fp.read()
