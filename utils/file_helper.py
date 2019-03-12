@@ -67,8 +67,7 @@ def merge_csv(folder_path, output_file):
 
 
 def get_file_bytes(file_path: str):
-    with open(file_path, 'rb') as fp:
-        return fp.read()
+    return Path(file_path).read_bytes()
 
 
 def get_all_files_with_extension(dir_path: str, extension: str) -> [str]:

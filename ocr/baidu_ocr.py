@@ -11,9 +11,9 @@ from .abstract_ocr import AbstractOCR
 from utils import file_helper
 
 
-APP_ID = ''
-API_KEY = ''
-SECRET_KEY = ''
+APP_ID = '10479433'
+API_KEY = 'SWoOHuGFMlkxjP3t5ZrNS7Va'
+SECRET_KEY = 'O9qTiNrxry78HeUTPed8WKL00Er9CXYC'
 
 # Support languages
 # CHN_ENG: Chinese mixed with English, default
@@ -39,11 +39,13 @@ class BaiduOCR(AbstractOCR):
             'language': self.language
         }
         response = self.client.basicGeneral(image, options)
-        print(response)
         self.parse_response(response)
 
     def parse_response(self, response: dict):
-        result = json.loads(response)
-        result = [x['words'] for x in result['words_result']]
-        result = os.linesep.join(result)
-        print(result)
+        if 'error_code' in response.keys():
+            print(f'Error: {response["error_msg"]}')
+            return
+        else:
+            result = [x['words'] for x in response['words_result']]
+            result = os.linesep.join(result)
+            print(result)

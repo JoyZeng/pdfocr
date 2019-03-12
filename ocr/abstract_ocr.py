@@ -8,9 +8,9 @@ from abc import ABC, abstractmethod
 
 class AbstractOCR(ABC):
     @abstractmethod
-    def post_image(self, image_path):
+    def post_image(self, image_path: str):
         pass
 
     @abstractmethod
-    def parse_response(self, response):
+    def parse_response(self, response: any):
         pass
