@@ -4,13 +4,12 @@
 # @Author : Yi(Joy) Zeng
 
 
-import json
 import os
 from aip import AipOcr
 from .abstract_ocr import AbstractOCR
 from utils import file_helper
 
-
+# Please respect to the key.
 APP_ID = '10479433'
 API_KEY = 'SWoOHuGFMlkxjP3t5ZrNS7Va'
 SECRET_KEY = 'O9qTiNrxry78HeUTPed8WKL00Er9CXYC'
@@ -26,11 +25,14 @@ SECRET_KEY = 'O9qTiNrxry78HeUTPed8WKL00Er9CXYC'
 # RUS: Russian
 # JAP: Japanese
 # KOR: Korean
+SUPPORTED_LANGUAGES = ['CHN_ENG', 'ENG', 'POR', 'FRE', 'GER', 'ITA', 'SPA', 'RUS', 'JAP', 'KOR']
 
 
 class BaiduOCR(AbstractOCR):
     def __init__(self, language='CHN_ENG'):
         self.client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
+        if language not in SUPPORTED_LANGUAGES:
+            raise ValueError(f'Language is not supported. Please use one of the following: {SUPPORTED_LANGUAGES}')
         self.language = language
 
     def post_image(self, image_path: str):
