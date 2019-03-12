@@ -41,13 +41,13 @@ class BaiduOCR(AbstractOCR):
             'language': self.language
         }
         response = self.client.basicGeneral(image, options)
-        self.parse_response(response)
+        return self.parse_response(response)
 
     def parse_response(self, response: dict):
         if 'error_code' in response.keys():
             print(f'Error: {response["error_msg"]}')
-            return
+            return None
         else:
             result = [x['words'] for x in response['words_result']]
             result = os.linesep.join(result)
-            print(result)
+            return result
