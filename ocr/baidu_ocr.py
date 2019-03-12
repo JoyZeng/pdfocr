@@ -15,8 +15,8 @@ API_KEY = 'SWoOHuGFMlkxjP3t5ZrNS7Va'
 SECRET_KEY = 'O9qTiNrxry78HeUTPed8WKL00Er9CXYC'
 
 # Support languages
-# CHN_ENG: Chinese mixed with English, default
-# ENG: English
+# ENG: English (default)
+# CHN_ENG: Chinese mixed with English
 # POR: Portuguese
 # FRE: French
 # GER: German
@@ -25,11 +25,11 @@ SECRET_KEY = 'O9qTiNrxry78HeUTPed8WKL00Er9CXYC'
 # RUS: Russian
 # JAP: Japanese
 # KOR: Korean
-SUPPORTED_LANGUAGES = ['CHN_ENG', 'ENG', 'POR', 'FRE', 'GER', 'ITA', 'SPA', 'RUS', 'JAP', 'KOR']
+SUPPORTED_LANGUAGES = ['ENG', 'CHN_ENG', 'POR', 'FRE', 'GER', 'ITA', 'SPA', 'RUS', 'JAP', 'KOR']
 
 
 class BaiduOCR(AbstractOCR):
-    def __init__(self, language='CHN_ENG'):
+    def __init__(self, language='ENG'):
         self.client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
         if language not in SUPPORTED_LANGUAGES:
             raise ValueError(f'Language is not supported. Please use one of the following: {SUPPORTED_LANGUAGES}')
