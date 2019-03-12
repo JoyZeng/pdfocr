@@ -5,7 +5,7 @@
 
 import tempfile
 import fire
-from utils.pdf_convert import convert_pdf_to_image
+from utils.file_convert import convert_pdf_to_image, reduce_image_size
 from utils import file_helper
 from ocr.baidu_ocr import BaiduOCR
 
@@ -25,6 +25,8 @@ def _process_pdf(pdf_path: str, output_path: str, lang: str):
 
 def _process_image(image_path: str, output_path: str, lang: str):
     baidu_client = BaiduOCR(lang)
+    reduce_image_size(image_path)
+    print(f'Applying OCR on image...')
     result = baidu_client.post_image(image_path)
     if result:
         file_helper.append_line(result, output_path)
