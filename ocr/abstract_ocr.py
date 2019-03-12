@@ -12,10 +12,5 @@ class AbstractOCR(ABC):
         pass
 
     @abstractmethod
-    def parse_result(self, result):
+    def parse_response(self, response):
         pass
-
-    @staticmethod
-    def get_file_content(file_path: str):
-        with open(file_path, 'rb') as fp:
-            return fp.read()

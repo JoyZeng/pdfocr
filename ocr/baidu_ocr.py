@@ -8,6 +8,7 @@ import json
 import os
 from aip import AipOcr
 from .abstract_ocr import AbstractOCR
+from utils import file_helper
 
 
 APP_ID = ''
@@ -33,13 +34,15 @@ class BaiduOCR(AbstractOCR):
         self.language = language
 
     def post_image(self, image_path: str):
-        image = get_file_content(image_path)
-        options = {}
-        options["language_type"] = self.language
+        image = file_helper.get_file_bytes(image_path)
+        options = {
+            'language': self.language
+        }
         response = self.client.basicGeneral(image, options)
+        print(response)
         self.parse_response(response)
 
-    def parse_response(self, response: str):
+    def parse_response(self, response: dict):
         result = json.loads(response)
         result = [x['words'] for x in result['words_result']]
         result = os.linesep.join(result)

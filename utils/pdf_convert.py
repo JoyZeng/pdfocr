@@ -4,8 +4,6 @@
 # @Author : Yi(Joy) Zeng
 
 
-import os
-from pathlib import Path
 from pdf2image import convert_from_path
 from PIL import Image
 
@@ -31,7 +29,3 @@ def convert_pdf_to_image(pdf_path: str, image_dir: str):
             ratio = max_pixel / max(image.width, image.height)
             image = image.resize((int(image.width * ratio), int(image.height * ratio)), Image.ANTIALIAS)
             image.save(image_path, quality=quality, optimize=True)
-
-
-if __name__ == '__main__':
-    convert_pdf_to_image('/Users/joy/Documents/personal_workpace/PDFtoTXT/sample.pdf', '/Users/joy/Documents/personal_workpace/pdf-ocr-cli')
