@@ -32,23 +32,28 @@ def _process_image(image_path: str, output_path: str, lang: str):
         file_helper.append_line(result, output_path)
 
 
-def process(i: str, o='output.txt', lang='ENG'):
+def process(i: str, o='', lang='ENG'):
     """
-    OCR a pdf file and save the text
-    :param i: The pdf file path.
-    :param o: The output file path.
-    :param lang: Use one the following: 'ENG', 'CHN_ENG', 'POR', 'FRE', 'GER', 'ITA', 'SPA', 'RUS', 'JAP', 'KOR'
+    OCR a file and save the text.
+    :param i: The input file path
+    :param o: The output file path
+    :param lang: Use one the following: 'ENG' (default), 'CHN_ENG', 'POR', 'FRE', 'GER', 'ITA', 'SPA', 'RUS', 'JAP', 'KOR'
     :return:
     """
     file_path = i
     if not file_helper.is_file_exists(file_path):
         raise FileNotFoundError('The input file does not exist.')
 
+    output_path = o
+    if output_path == '':
+        output_path = f'{file_helper.get_file_stem_name(file_path)}.txt'
+
+    file_helper.delete_if_exists(output_path)
     extension = file_helper.get_file_extension(file_path).lower()
     if extension == 'pdf':
-        _process_pdf(file_path, o, lang)
+        _process_pdf(file_path, output_path, lang)
     elif extension in ['jpg', 'jpeg', 'png', 'bmp']:
-        _process_image(file_path, o, lang)
+        _process_image(file_path, output_path, lang)
     else:
         raise ValueError('Only support file types: pdf, jpg, png, bmp.')
 
