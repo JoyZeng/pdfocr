@@ -90,3 +90,7 @@ def get_all_files_with_pattern(dir_path: str, pattern: str) -> [str]:
     p = Path(dir_path)
     file_list = list(p.glob(f'**/{pattern}'))
     return sorted(file_list)
+
+
+def get_file_extension(file_path: str) -> str:
+    return Path(file_path).suffix.replace('.', '')
