@@ -50,4 +50,5 @@ class BaiduOCR(AbstractOCR):
         else:
             result = [x['words'] for x in response['words_result']]
             result = os.linesep.join(result)
+            result += os.linesep
             return result
