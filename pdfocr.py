@@ -8,6 +8,7 @@ import fire
 from utils.file_convert import convert_pdf_to_image, reduce_image_size
 from utils import file_helper
 from ocr.baidu_ocr import BaiduOCR
+from tqdm import tqdm
 
 
 def _process_pdf(pdf_path: str, output_path: str, lang: str):
@@ -16,8 +17,9 @@ def _process_pdf(pdf_path: str, output_path: str, lang: str):
         print('Processing pdf, it might take a while...')
         convert_pdf_to_image(pdf_path, output_dir)
         images = file_helper.get_all_files_with_extension(output_dir, 'jpg')
-        for i in range(len(images)):
-            print(f'Applying OCR on page {i + 1}')
+        pages = len(images)
+        print(f'Applying OCR on pdf, total pages: {pages}')
+        for i in tqdm(range(pages)):
             result = baidu_client.post_image(images[i])
             if result:
                 file_helper.append_line(result, output_path)
