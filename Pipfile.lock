@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bc0191920c56d018653300faa707712617baecabcac896ecc1db8ae7479d9511"
+            "sha256": "705a2bb8cbc47baeeca1cb700eb3f555fdfd7c01b2db50590e0ce0c84ae63e07"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,10 @@
         ]
     },
     "default": {
+        "baidu-aip": {
+            "git": "https://github.com/Baidu-AIP/python-sdk.git",
+            "ref": "a3f9891c2c1f9625c39847aa67a86b93301a7a11"
+        },
         "fire": {
             "hashes": [
                 "sha256:c299d16064ff81cbb649b65988300d4a28b71ecfb789d1fb74d99ea98ae4d2eb"
