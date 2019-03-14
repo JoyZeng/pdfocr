@@ -30,7 +30,7 @@ def reduce_image_size(image_obj: [str, Image.Image]):
     :return:
     """
     max_pixel = 4096    # Max pixels at each edge of image.
-    quality = 20    # Image resize quality
+    quality = 40    # Image resize quality
 
     if isinstance(image_obj, str):
         image = Image.open(image_obj)

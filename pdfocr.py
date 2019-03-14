@@ -35,7 +35,7 @@ def _process_image(image_path: str, output_path: str, lang: str):
 def process(i: str, o='', lang='ENG'):
     """
     OCR a file and save the text.
-    :param i: The input file path
+    :param i: The input file path. Support pdf, jpg, png, bmp.
     :param o: The output file path
     :param lang: Use one the following: 'ENG' (default), 'CHN_ENG', 'POR', 'FRE', 'GER', 'ITA', 'SPA', 'RUS', 'JAP', 'KOR'
     :return:
