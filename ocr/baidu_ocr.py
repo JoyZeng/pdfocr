@@ -9,7 +9,8 @@ from aip import AipOcr
 from .abstract_ocr import AbstractOCR
 from utils import file_helper
 
-# Please respect to the key.
+# Baidu OCR API key.
+# Please respect it.
 APP_ID = '10479433'
 API_KEY = 'SWoOHuGFMlkxjP3t5ZrNS7Va'
 SECRET_KEY = 'O9qTiNrxry78HeUTPed8WKL00Er9CXYC'
@@ -35,12 +36,15 @@ class BaiduOCR(AbstractOCR):
             raise ValueError(f'Language is not supported. Please use one of the following: {SUPPORTED_LANGUAGES}')
         self.language = language
 
-    def post_image(self, image_path: str):
+    def post_image(self, image_path: str, accurate: bool):
         image = file_helper.get_file_bytes(image_path)
         options = {
             'language': self.language
         }
-        response = self.client.basicGeneral(image, options)
+        if accurate:
+            response = self.client.basicAccurate(image, options)
+        else:
+            response = self.client.basicGeneral(image, options)
         return self.parse_response(response)
 
     def parse_response(self, response: dict):
