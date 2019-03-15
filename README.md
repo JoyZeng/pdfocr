@@ -49,12 +49,12 @@ python pdfocr.py sample.pdf
 
 The tool uses API service to perform OCR.
 
- Currently it uses Baidu's API, with my API key. 
+Currently it uses Baidu's API, with my API key. 
 
-If the built-in API key's quota run out, you can either:
+If the built-in API key's quota run out (an error message like `request limit reached`), you can either:
 
 1. Set the cli option `accurate` to be `False` (The less accurate version's api has more quota, but it still could run out).
-2.  Or  go to [Baidu Cloud](https://login.bce.baidu.com/?lang=en) to apply for your own API key (it's free), then fill in the `APP_ID`, `API_KEY` and `SECRET_KEY` fields in `ocr/baidu_ocr.py`.
+2. Or use your own API key (it's free). Go to [Baidu Cloud](https://login.bce.baidu.com/?lang=en) to apply for your API key, then fill in the `APP_ID`, `API_KEY` and `SECRET_KEY` fields in `ocr/baidu_ocr.py`.
 
 # Usage
 
