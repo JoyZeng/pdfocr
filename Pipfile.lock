@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1847595b2772937da089daa74e794746285269ef9cff410a92cdb906c72b7b37"
+            "sha256": "383ccc02a94f66bcb941b16167c167018288c4f605a640a9a4e632f0414a1b02"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -17,8 +17,25 @@
     },
     "default": {
         "baidu-aip": {
-            "git": "https://github.com/Baidu-AIP/python-sdk.git",
-            "ref": "a3f9891c2c1f9625c39847aa67a86b93301a7a11"
+            "hashes": [
+                "sha256:314b004c05762bd4ab94e71c171f2a2f7fe743d23928ba4143a0af714e0e9121"
+            ],
+            "index": "pypi",
+            "version": "==2.2.13.0"
+        },
+        "certifi": {
+            "hashes": [
+                "sha256:59b7658e26ca9c7339e00f8f4636cdfe59d34fa37b9b04f6f9e9926b3cece1a5",
+                "sha256:b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
+            ],
+            "version": "==2019.3.9"
+        },
+        "chardet": {
+            "hashes": [
+                "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae",
+                "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"
+            ],
+            "version": "==3.0.4"
         },
         "fire": {
             "hashes": [
@@ -26,6 +43,13 @@
             ],
             "index": "pypi",
             "version": "==0.1.3"
+        },
+        "idna": {
+            "hashes": [
+                "sha256:c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407",
+                "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
+            ],
+            "version": "==2.8"
         },
         "pdf2image": {
             "hashes": [
@@ -69,6 +93,13 @@
             ],
             "version": "==5.4.1"
         },
+        "requests": {
+            "hashes": [
+                "sha256:502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e",
+                "sha256:7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b"
+            ],
+            "version": "==2.21.0"
+        },
         "six": {
             "hashes": [
                 "sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c",
@@ -83,6 +114,13 @@
             ],
             "index": "pypi",
             "version": "==4.31.1"
+        },
+        "urllib3": {
+            "hashes": [
+                "sha256:61bf29cada3fc2fbefad4fdf059ea4bd1b4a86d2b6d15e1c7c0b582b9752fe39",
+                "sha256:de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+            ],
+            "version": "==1.24.1"
         }
     },
     "develop": {}

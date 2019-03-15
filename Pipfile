@@ -8,8 +8,8 @@ verify_ssl = true
 [packages]
 pdf2image = "*"
 fire = "*"
-baidu-aip = {git = "https://github.com/Baidu-AIP/python-sdk.git",ref = "master"}
 tqdm = "*"
+baidu-aip = "*"
 
 [requires]
 python_version = "3.7"
