@@ -20,7 +20,7 @@ def _process_pdf(pdf_path: str, output_path: str, lang: str, accurate: bool):
         pages = len(images)
         print(f'Applying OCR on pdf, total pages: {pages}')
         for i in tqdm(range(pages)):
-            result = baidu_client.post_image(images[i])
+            result = baidu_client.post_image(images[i], accurate)
             if result:
                 file_helper.append_line(result, output_path)
 
@@ -29,7 +29,7 @@ def _process_image(image_path: str, output_path: str, lang: str, accurate: bool)
     baidu_client = BaiduOCR(lang)
     reduce_image_size(image_path)
     print(f'Applying OCR on image...')
-    result = baidu_client.post_image(image_path)
+    result = baidu_client.post_image(image_path, accurate)
     if result:
         file_helper.append_line(result, output_path)
 
