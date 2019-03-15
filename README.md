@@ -1,5 +1,5 @@
 # pdfocr 
-A Python 3.6+ cmd tool to convert pdf and image to editable text. 
+A Python 3.6+ cli tool to convert pdf and image to editable text. 
 
 ```bash
 python pdfocr.py sample.pdf
@@ -22,10 +22,11 @@ python pdfocr.py sample.pdf
      pip install --user pipenv
      ```
 
-2. Install dependencies
+2. Install dependencies and activate virtualenv:
 
    ```bash
    pipenv install
+   pipenv shell
    ```
 
 3. Install [Poppler](https://poppler.freedesktop.org/)
