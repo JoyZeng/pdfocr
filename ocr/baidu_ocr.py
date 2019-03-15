@@ -36,15 +36,16 @@ class BaiduOCR(AbstractOCR):
             raise ValueError(f'Language is not supported. Please use one of the following: {SUPPORTED_LANGUAGES}')
         self.language = language
 
-    def post_image(self, image_path: str, accurate: bool):
+    def post_image(self, image_path: str, options: dict):
         image = file_helper.get_file_bytes(image_path)
-        options = {
+        params = {
             'language': self.language
         }
-        if accurate:
-            response = self.client.basicAccurate(image, options)
+
+        if options.get('accurate', True):
+            response = self.client.basicAccurate(image, params)
         else:
-            response = self.client.basicGeneral(image, options)
+            response = self.client.basicGeneral(image, params)
         return self.parse_response(response)
 
     def parse_response(self, response: dict):

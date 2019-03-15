@@ -8,7 +8,7 @@ from abc import ABC, abstractmethod
 
 class AbstractOCR(ABC):
     @abstractmethod
-    def post_image(self, image_path: str):
+    def post_image(self, image_path: str, options: dict):
         pass
 
     @abstractmethod
